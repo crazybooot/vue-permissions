@@ -1,0 +1,24 @@
+{
+  "name": "vue-permissions",
+  "version": "0.0.1",
+  "description": "Packege for managing permissions for vue js applications",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crazybooot/vue-permissions.git"
+  },
+  "keywords": [
+    "permissions",
+    "vue",
+    "js"
+  ],
+  "author": "crazybooot",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/crazybooot/vue-permissions/issues"
+  },
+  "homepage": "https://github.com/crazybooot/vue-permissions#readme"
+}
