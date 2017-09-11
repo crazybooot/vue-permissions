@@ -1,13 +1,16 @@
 import Permissions from './store/modules/index';
-import * as types from './store/modules/types';
 import Can from './components/Can.vue';
 import Vuex from 'vuex';
-import Vue from 'vue';
+import registerPermissionMethod from './mixins/registerPermissionMethod';
+import resolvePermissionsMethod from './mixins/resolvePermissionsMethod';
 
 export default function install(Vue, options = {}) {
     const moduleName = options.moduleName || 'permissions';
     //@todo add functionality to pass url to actions
     const url = options.url;
+    //@todo check logic conditions
+    const globalMethods = undefined === options.globalMethods || options.globalMethods;
+    const globalComponent = undefined === options.globalComponent || options.globalComponent;
     let store = options.store;
 
     if (!store) {
@@ -20,17 +23,14 @@ export default function install(Vue, options = {}) {
         }
     }
 
-    Vue.component('can', Can);
-    Vue.mixin({
-        methods: {
-            resolvePermissions(filter) {
-                this.$store.dispatch(types.actions.RESOLVE_PERMISSIONS, filter);
-            },
-            registerPermission(permission) {
-                this.$store.dispatch(types.actions.REGISTER_PERMISSION, permission);
-            }
-        }
-    });
+    if (globalComponent) {
+        Vue.component('can', Can);
+    }
+
+    if (globalMethods) {
+        Vue.mixin(registerPermissionMethod);
+        Vue.mixin(resolvePermissionsMethod);
+    }
 
     store.registerModule(moduleName, Permissions);
 }
