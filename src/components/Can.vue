@@ -5,7 +5,13 @@
 </template>
 
 <script>
+    import registerPermissionMethod from './../mixins/registerPermissionMethod';
+    import * as types from './../store/modules/types';
+
     export default {
+        mixins: [
+            registerPermissionMethod
+        ],
         props: {
             model: {
                 type: String,
@@ -49,7 +55,7 @@
         computed: {
             //@todo find the way to use map getters helper with passing params
             can() {
-                return this.$store.getters.GET_PERMISSION(this.permission).can;
+                return this.$store.getters[types.getters.GET_PERMISSION](this.permission).can;
             }
         },
     }
