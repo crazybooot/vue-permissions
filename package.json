@@ -2,7 +2,7 @@
   "name": "vue-permissions",
   "version": "0.0.1",
   "description": "Package for managing permissions for vue js applications",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "build": "webpack -p",
     "prepublish": "npm run build"
