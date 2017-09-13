@@ -1,2 +1,2 @@
 # vue-permissions
-Vue permissins
+Vue permissions
