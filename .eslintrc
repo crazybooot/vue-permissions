@@ -1,0 +1,16 @@
+{
+  "extends": [
+    "vue"
+  ],
+  "rules": {
+    "semi": [
+      2,
+      "always"
+    ],
+    "no-extra-semi": 2,
+    "indent": [
+      "error",
+      4
+    ]
+  }
+}
