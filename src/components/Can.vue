@@ -1,6 +1,7 @@
 <template>
-    <div v-if="can">
-        <slot></slot>
+    <div v-bind:class="classes" v-bind:style="styles">
+        <slot v-if="can"></slot>
+        <slot name="cannot" v-else></slot>
     </div>
 </template>
 
@@ -31,6 +32,18 @@
                 required: false,
                 default: true
             },
+            classes: {
+                type: Object,
+                required: false,
+                default: () => {
+                }
+            },
+            styles: {
+                type: Object,
+                required: false,
+                default: () => {
+                }
+            },
             callback: {
                 type: Function,
                 required: false
@@ -39,7 +52,7 @@
         data() {
             return {
                 permission: {}
-        };
+            };
         },
         created() {
             //@todo add functionality to resolve permission by callback
